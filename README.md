@@ -21,10 +21,12 @@ tud.mci.LanguageLocalization.LL
 <localization>
 
   <locale language="default">
-     <trans id="tangram.lector.oo_observer.selected_elements">{0} elements selected.</trans>  </locale>
+     <trans id="tangram.lector.oo_observer.selected_elements">{0} elements selected.</trans>  
+  </locale>
 
   <locale language="de">
-    <trans id="tangram.lector.oo_observer.selected_elements">{0} Elemente gewählt.</trans>  </locale>
+    <trans id="tangram.lector.oo_observer.selected_elements">{0} Elemente gewählt.</trans>  
+  </locale>
 
 </localization>
 ```
