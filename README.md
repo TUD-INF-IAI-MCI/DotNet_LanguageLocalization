@@ -51,6 +51,16 @@ ll.GetTrans(String key, params string[] strs)
 If no localized text is available the default text is returned. If no matching key exists an empty string will be returned.
 
 
+### Configuration
+
+To define the standard culture of the translation to use, use the app.config file of your programm and add e.g.:
+
+```
+	<appSettings>
+		<add key="DefaultCulture" value="en-US" />
+	</appSettings>
+```
+
 ## You want to know more?
 
 --	TODO: build help from code doc
