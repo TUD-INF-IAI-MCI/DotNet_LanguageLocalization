@@ -136,7 +136,7 @@ namespace tud.mci.LanguageLocalization
         /// <summary>
         /// Loads the localization definitions form a file
         /// </summary>
-        /// <param name="path">the filepath of the localization definition file</param>
+        /// <param name="path">the file path of the localization definition file</param>
         /// <returns><c>true</c>if the file could been loaded, otherwise <c>false</c>.</returns>
         public bool LoadFromFile(String path)
         {
@@ -284,7 +284,7 @@ namespace tud.mci.LanguageLocalization
         /// <summary>
         /// Combines two dictionaries
         /// </summary>
-        /// <param name="first">the first (and basic) dictionary. Is the one that will be updated (overritten) by the second.</param>
+        /// <param name="first">the first (and basic) dictionary. Is the one that will be updated (overwritten) by the second.</param>
         /// <param name="second">the second dictionary, extend or update the first dictionary</param>
         /// <returns>The first dictionary extended or updated by the second dictionary</returns>
         public static Dictionary<String, String> CombineDictionaries(Dictionary<String, String> first, Dictionary<String, String> second)
@@ -313,7 +313,7 @@ namespace tud.mci.LanguageLocalization
         /// <summary>
         /// Combines two dictionaries
         /// </summary>
-        /// <param name="first">the first (and basic) dictionary. Is the one that will be updated (overritten) by the second.</param>
+        /// <param name="first">the first (and basic) dictionary. Is the one that will be updated (overwritten) by the second.</param>
         /// <param name="second">the second dictionary, extend or update the first dictionary</param>
         /// <returns>The first dictionary extended or updated by the second dictionary</returns>
         public static Dictionary<String, Dictionary<String, String>> CombineDictionaries(Dictionary<String, Dictionary<String, String>> first, Dictionary<String, Dictionary<String, String>> second)

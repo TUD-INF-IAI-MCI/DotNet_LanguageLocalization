@@ -2,9 +2,9 @@ DotNet_LanguageLocalization
 =========
 
 ## Intension:
-Localization is speech and other parts is not an easy task even when it should be doable without recompiling .Net projects. So this little project allows for a definition of language overlays for a basic translations in a key value manner. The translations are organized in XML files that can be translated easily by external translates. 
+Localization in speech and other parts is not an easy task even when it should be doable without recompiling .Net projects. So this little project allows for a definition of language overlays for a basic translations in a key value manner. The translations are organized in XML files that can be translated easily by external translates. 
 
-The phrases itself can contains placeholders width specific order so the translation can be filled in with an unlimited number of parameters. 
+The phrases itself can contain placeholders width specific a order, so the translation can be filled in with an unlimited number of parameters.
 
 
 ## How to use:
@@ -43,7 +43,7 @@ LL ll = new LL(Properties.Resources.Language);
 
 The language to use will be the default definition instead of the locale of the system is set to an existing language key in the definition file.
 
-To get a translated ley request the local instance 
+To get a translated key request the local instance:
 ```
 ll.GetTrans(String key, params string[] strs)
 ```
