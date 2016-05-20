@@ -16,7 +16,7 @@ tud.mci.LanguageLocalization.LL
 
 ### Example for a localization file
 
-```
+``` XML
 <?xml version="1.0" encoding="utf-16" standalone="yes" ?>
 <localization>
 
@@ -31,20 +31,22 @@ tud.mci.LanguageLocalization.LL
 </localization>
 ```
 
-Add this file for example as a text file resource [Language.txt]. You can rename it to .xml if you want. **Attention:** afterwards you have to fix the Resources.resx file manually.
+Add this file for example as a text file resource [Language.txt]. You can rename it to .xml if you want. **Attention:** after a renaming of the file extension you have to fix/adapt the reference in the `Properties\Resources.resx` file manually.
 
 ### Example
 
 #### Attention: the resources are only accessible through the given namespace. The namespace of the instancing class must be the same as the “standardnamespace” in the project properties. 
 Afterwards you can add this file into the constructor of your LL class instance
-```
+
+``` C#
 LL ll = new LL(Properties.Resources.Language);
 ```
 
 The language to use will be the default definition instead of the locale of the system is set to an existing language key in the definition file.
 
 To get a translated key request the local instance:
-```
+
+``` C#
 ll.GetTrans(String key, params string[] strs)
 ```
 
@@ -55,7 +57,7 @@ If no localized text is available the default text is returned. If no matching k
 
 To define the standard culture of the translation to use, use the app.config file of your programm and add e.g.:
 
-```
+``` XML
 	<appSettings>
 		<add key="DefaultCulture" value="en-US" />
 	</appSettings>
