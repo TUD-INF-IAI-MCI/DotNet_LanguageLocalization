@@ -7,6 +7,7 @@ using System.Xml;
 using System.Globalization;
 using System.Threading;
 using System.Configuration;
+using System.Xml.Schema;
 
 namespace tud.mci.LanguageLocalization
 {
@@ -197,11 +198,53 @@ namespace tud.mci.LanguageLocalization
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(xmlString);
 
+                // validation
+                try
+                {
+                    doc.Schemas.Add(getValidtaionSchema());
+                    doc.Schemas.Compile();
+                    doc.Validate(DTDValidation);
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Error in localization definition XML file validation file load:\r\n" + ex);
+                }
+
                 return BuildLanguageDefinitionsFromXML(doc);
             }
 
             return new Dictionary<String, Dictionary<String, String>>();
         }
+
+        static XmlSchema _mySchema;
+        static XmlSchema getValidtaionSchema()
+        {
+
+            if (_mySchema == null)
+            {
+                System.Text.Encoding encode = System.Text.Encoding.UTF8;
+                MemoryStream ms = new MemoryStream(encode.GetBytes(Properties.Resources.localization));
+                _mySchema = XmlSchema.Read(ms, DTDValidation);
+            }
+            return _mySchema;
+        }
+
+
+        static System.Xml.Schema.ValidationEventHandler DTDValidation = new System.Xml.Schema.ValidationEventHandler(booksSettingsValidationEventHandler);
+        static void booksSettingsValidationEventHandler(object sender, System.Xml.Schema.ValidationEventArgs e)
+        {
+            if (e.Severity == System.Xml.Schema.XmlSeverityType.Warning)
+            {
+                Console.Write("WARNING: ");
+                Console.WriteLine(e.Message);
+            }
+            else if (e.Severity == System.Xml.Schema.XmlSeverityType.Error)
+            {
+                Console.Write("ERROR: ");
+                Console.WriteLine(e.Message);
+            }
+        }
+
 
         /// <summary>
         /// Builds the language definitions from an XML document.
