@@ -447,22 +447,26 @@ namespace tud.mci.LanguageLocalization
         /// the default translation if no localized version exist or the empty string.</returns>
         public String GetTrans(String key, System.Globalization.CultureInfo _culture)
         {
-            if (_culture == null) _culture = culture;
-            string locale = LANGUAGE_DEFAULT;
-
-            if (_culture != null) { locale = _culture.TwoLetterISOLanguageName.ToLower(); }
-
-            locale = locale.ToLower();
-            if (definitions != null && definitions.ContainsKey(locale))
+            if (key != null)
             {
-                var langDev = definitions[locale];
-                if (langDev.ContainsKey(key))
-                {
-                    return langDev[key];
-                }
-            }
+                if (_culture == null) _culture = culture;
+                string locale = LANGUAGE_DEFAULT;
 
-            return GetDefaultTrans(key);
+                if (_culture != null) { locale = _culture.TwoLetterISOLanguageName.ToLower(); }
+
+                locale = locale.ToLower();
+                if (definitions != null && definitions.ContainsKey(locale))
+                {
+                    var langDev = definitions[locale];
+                    if (langDev.ContainsKey(key))
+                    {
+                        return langDev[key];
+                    }
+                }
+
+                return GetDefaultTrans(key); 
+            }
+            return String.Empty;
         }
 
         /// <summary>
