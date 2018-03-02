@@ -52,6 +52,18 @@ namespace tud.mci.LanguageLocalization
         /// <summary>
         /// Initializes a new instance of the <see cref="LL"/> class.
         /// You have to set a localization definition file <see cref="LL.LoadFromFile"/>.
+        /// 
+        /// In the [App.exe].config file something like this has to be entered if 
+        /// you want to override to use the default system language setting.
+        /// 
+        /// &lt;?xml version ="1.0"?&gt;
+        /// &lt;configuration&gt;
+        ///  	[...]
+        ///  	&lt;appSettings&gt;
+        /// 		&lt;add key="DefaultCulture" value="en-US" /&gt;
+        /// 	&lt;/appSettings&gt;
+        /// 	[...]
+        /// &lt;/configuration&gt;
         /// </summary>
         public LL()
         {
