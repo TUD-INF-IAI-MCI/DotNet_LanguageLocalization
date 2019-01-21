@@ -242,7 +242,7 @@ namespace tud.mci.LanguageLocalization
         }
 
 
-        static System.Xml.Schema.ValidationEventHandler DTDValidation = new System.Xml.Schema.ValidationEventHandler(booksSettingsValidationEventHandler);
+        static readonly System.Xml.Schema.ValidationEventHandler  DTDValidation = new System.Xml.Schema.ValidationEventHandler(booksSettingsValidationEventHandler);
         static void booksSettingsValidationEventHandler(object sender, System.Xml.Schema.ValidationEventArgs e)
         {
             if (e.Severity == System.Xml.Schema.XmlSeverityType.Warning)
